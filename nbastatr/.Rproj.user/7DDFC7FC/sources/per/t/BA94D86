@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567119494924.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "BA94D86",
+    "lastKnownWriteTime" : 7957695011165139568,
+    "last_content_update" : 1567119494924,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "CDAF55A2",
+        "caption" : "nbadat6",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=nbadat6&cache_key=CDAF55A2",
+        "displayedObservations" : "150",
+        "environment" : "",
+        "expression" : "nbadat6",
+        "object" : "nbadat6",
+        "preview" : "0",
+        "totalObservations" : "150",
+        "variables" : "18"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

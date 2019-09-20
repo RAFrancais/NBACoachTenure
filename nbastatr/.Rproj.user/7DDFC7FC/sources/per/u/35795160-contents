@@ -1,0 +1,3 @@
+install.packages("XML")
+install.packages("RCurl")
+install.packages("plyr")

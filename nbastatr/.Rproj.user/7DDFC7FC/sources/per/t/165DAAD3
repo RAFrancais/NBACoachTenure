@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567926754965.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "804723753",
+    "id" : "165DAAD3",
+    "lastKnownWriteTime" : 1568005013,
+    "last_content_update" : 1568005013728,
+    "path" : "D:/RLearning/NBACoachingTenure/nbawin5.9V2.R",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "67,568",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

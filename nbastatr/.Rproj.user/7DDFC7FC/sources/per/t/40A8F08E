@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567116211105.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "40A8F08E",
+    "lastKnownWriteTime" : 7885647299511415913,
+    "last_content_update" : 1567116211105,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "13451883",
+        "caption" : "nbawin5.9",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=nbawin5.9&cache_key=13451883",
+        "displayedObservations" : 150,
+        "environment" : "",
+        "expression" : "nbawin5.9",
+        "object" : "nbawin5.9",
+        "preview" : 0,
+        "totalObservations" : 150,
+        "variables" : 17
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
