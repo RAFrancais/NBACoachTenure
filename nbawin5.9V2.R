@@ -1,10 +1,10 @@
 setwd("D:/RLearning/NBACoachingTenure")
 ##Importing the years
-  nbawin2015 <- read.csv("D:/Rlearning/NBACoachingTenure/NBAWins2015v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
-  nbawin2016 <- read.csv("D:/Rlearning/NBACoachingTenure/NBAWins2016v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
-  nbawin2017 <- read.csv("D:/Rlearning/NBACoachingTenure/NBAWins2017v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
-  nbawin2018 <- read.csv("D:/Rlearning/NBACoachingTenure/NBAWins2018v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
-  nbawin2019 <- read.csv("D:/Rlearning/NBACoachingTenure/NBAWins2019v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
+  nbawin2015 <- read.csv("D:/Rlearning/NBACoachingTenure/datasets/NBAWins2015v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
+  nbawin2016 <- read.csv("D:/Rlearning/NBACoachingTenure/datasets/NBAWins2016v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
+  nbawin2017 <- read.csv("D:/Rlearning/NBACoachingTenure/datasets/NBAWins2017v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
+  nbawin2018 <- read.csv("D:/Rlearning/NBACoachingTenure/datasets/NBAWins2018v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
+  nbawin2019 <- read.csv("D:/Rlearning/NBACoachingTenure/datasets/NBAWins2019v1.csv", header = TRUE, stringsAsFactors=FALSE, row.names = NULL, sep=",")
 ##Fixing column names
  colnames(nbawin2016)[10] <- "Coach.Tenure"
  colnames(nbawin2018)[10] <- "Coach.Tenure"
@@ -24,7 +24,9 @@ setwd("D:/RLearning/NBACoachingTenure")
  install.packages("ggrepel")
  install.packages("car")
  install.packages("carData")
- install.packages("")
+ install.packages("stargazer")
+ install.packages("gganimate")
+ install.packages("reshape2")
  library("plm")
  library("Formula")
  library("xlsx")
@@ -32,6 +34,9 @@ setwd("D:/RLearning/NBACoachingTenure")
  library("ggrepel")
  library(carData)
  library(car)
+ library(stargazer)
+ library(gganimate)
+ library(reshape2)
 ##Generating the ID Variable 
  names(nbawin5.9) [1] <-"Team"
  nbawin5.9$ID <- as.numeric(as.factor(nbawin5.9$Team))
@@ -60,8 +65,6 @@ setwd("D:/RLearning/NBACoachingTenure")
  nbawin5.9sub <- subset(nbawin5.9, Coach.Tenure < 16)
  ggplot(nbawin5.9sub, aes(x=Coach.Tenure, y=OFFRTG, colour=NBAYear, shape=NBAYear)) + geom_point(size=4, shape=18)
  ## Animated scatterplot
- install.packages("gganimate")
- library(gganimate)
  scatteranim <- ggplot(nbadat6, aes(x=Coach.Tenure, y=OFFRTG, colour=NBAYear, shape=NBAYear, label = paste("(",Team,",",NBAYear,")"))) + geom_point(size=4, shape=21)  + geom_label_repel(data = subset(nbadat6,Coach.Tenure>10), size=3) + scale_shape_identity()  + geom_label_repel(data = subset(nbadat6, OFFRTG<100), size = 3) + geom_hline(aes(yintercept=mean(OFFRTG)), color="blue", linetype="dashed", size=1) + xlab("Coach Tenure (Years)") + ylab("Offensive Rating")
  hitchanim <- scatteranim + transition_time(NBAYear) + labs(title = "Year: {frame_time}") + ease_aes('cubic-in-out')
  animate(hitchanim, nframes = 125, end_pause = 30, height = 500, width = 600)
@@ -78,8 +81,6 @@ setwd("D:/RLearning/NBACoachingTenure")
  melted_cormat[,3] <- round(melted_cormat[,3], digits = 2)
  ggplot(data = melted_cormat, aes(Var2, Var1, fill=value)) + geom_tile(color = "white") + scale_fill_gradient2(low="blue", high="red", mid="white", midpoint = 0, limit = c(-1,1), space = "Lab", name="Dependent Variable\nCorrelation") + theme_minimal() + geom_text(aes(Var2,Var1, label = value), color = "black", size = 4)
 ##Output Regression tables 
- install.packages("stargazer")
- library(stargazer)
  stargazer(fixedlog,fixedlogRTG,randomlog,randomlogRTG, type="html", title="Regression Results", align=TRUE,covariate.labels=c("Log of Total Cap", "Average Age", "Coach Tenure", "Offensive Rating", "Defensive Rating", "Turnovers per 100"), style="aer", column.labels=c("Fixed", "FixedRTG", "Random", "RandomRTG"))
  
  
